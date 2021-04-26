@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxaJurosAPI", "TaxaJurosAP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9FEB7464-6602-4E6A-8E2E-9498E59C9A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitario", "Unitario\Unitario.csproj", "{6DE9F7B7-5874-439E-96D7-A81F8635D3D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unitario", "Tests\Unitario\Unitario.csproj", "{6DE9F7B7-5874-439E-96D7-A81F8635D3D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
