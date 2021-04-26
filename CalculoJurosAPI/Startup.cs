@@ -1,3 +1,5 @@
+using CalculoJurosAPI.Interfaces;
+using CalculoJurosAPI.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,12 +21,15 @@ namespace CalculoJurosAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
+            services.AddScoped<IReqServices, ReqServices>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Calculo de Juros", Version = "v1" });
 
             });
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +51,11 @@ namespace CalculoJurosAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Calculo de Juros API");
             });
+
+            app.UseCors(builder => builder
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {

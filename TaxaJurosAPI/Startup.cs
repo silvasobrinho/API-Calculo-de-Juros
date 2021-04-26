@@ -25,6 +25,8 @@ namespace TaxaJurosAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Taxa de Juros", Version = "v1" });
 
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,11 @@ namespace TaxaJurosAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Taxa de Juros API");
             });
+
+            app.UseCors(builder => builder
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
